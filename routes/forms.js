@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const allResults = await itemModel.find({});
     if (allResults && allResults.length > 0)
       res.status(200).send('/UpdateItem');
-    else res.status(404).json();
+    else res.status(200).send('/NewItem');
   } catch (err) {
     res.status(500).json(err);
   }
