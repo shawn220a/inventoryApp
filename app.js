@@ -14,7 +14,7 @@ app.get('/api', (req, res) => {
   res.send('Welcome to the backend');
 });
 
-app.use('/form', formRoutes);
+app.use('/api/form', formRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

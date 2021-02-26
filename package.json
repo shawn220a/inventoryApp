@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start:dev": "concurrently  -n \"server,client\" -c \"red,green\" \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "dev": "nodemon app.js"
+    "start:dev": "concurrently  -n \"dev,client\" -c \"red,green\" \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "dev": "nodemon app.js",
+    "client": "cd client && npm run start"
   },
   "keywords": [],
   "author": "",
