@@ -88,7 +88,25 @@ export const Home = () => {
         <button onClick={sendData}>Submit</button>
       </form>
       <hr />
-      
+      <table>
+        <tr>
+          <th>Barcode</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Location</th>
+        </tr>
+        {items &&
+          items.map((item) => {
+            return (
+              <tr>
+                <th>{item.barcode}</th>
+                <th>{item.description}</th>
+                <th>{item.quantity}</th>
+                <th>{item.location}</th>
+              </tr>
+            );
+          })}
+      </table>
     </div>
   );
 };
