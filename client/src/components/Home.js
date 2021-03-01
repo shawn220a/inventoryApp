@@ -39,7 +39,6 @@ export const Home = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data);
       setItems(res.data);
     });
   }, []);
