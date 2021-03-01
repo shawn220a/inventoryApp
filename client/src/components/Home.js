@@ -97,7 +97,7 @@ export const Home = () => {
         {items &&
           items.map((item) => {
             return (
-              <tr>
+              <tr key={item._id}>
                 <th>{item.barcode}</th>
                 <th>{item.description}</th>
                 <th>{item.quantity}</th>
