@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const Home = () => {
+  const [items, setItems] = useState('');
   const [newSearch, setNewSearch] = useState('');
   const [barcode, setBarcode] = useState('');
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [location, setLocation] = useState('Office');
+
+  const headers = {
+    'content-type': 'application/json',
+  };
+
+  const url = '/api/form/';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +32,17 @@ export const Home = () => {
     };
 
     console.log(body);
+    await axios.post(url, body, {
+      headers,
+    });
   };
+
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      console.log(res.data);
+      setItems(res.data);
+    });
+  }, []);
 
   return (
     <div className='container'>
@@ -70,6 +87,8 @@ export const Home = () => {
         <br />
         <button onClick={sendData}>Submit</button>
       </form>
+      <hr />
+      
     </div>
   );
 };
