@@ -89,24 +89,38 @@ export const Home = () => {
       </form>
       <hr />
       <table>
-        <tr>
-          <th>Barcode</th>
-          <th>Description</th>
-          <th>Quantity</th>
-          <th>Location</th>
-        </tr>
-        {items &&
-          items.map((item) => {
-            return (
-              <tr key={item._id}>
-                <th>{item.barcode}</th>
-                <th>{item.description}</th>
-                <th>{item.quantity}</th>
-                <th>{item.location}</th>
-                <button>Update Item</button>
-              </tr>
-            );
-          })}
+        <thead>
+          <tr>
+            <th>Barcode</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items &&
+            items.map((item) => {
+              return (
+                <tr key={item._id}>
+                  <td>{item.barcode}</td>
+                  <td>{item.description}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.location}</td>
+                  <td>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelected(item);
+                        console.log(selected);
+                      }}
+                    >
+                      Update Item
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
       </table>
     </div>
   );
