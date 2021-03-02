@@ -8,6 +8,7 @@ export const Home = () => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [location, setLocation] = useState('Office');
+  const [selected, setSelected] = useState(null);
 
   const headers = {
     'content-type': 'application/json',
@@ -102,6 +103,7 @@ export const Home = () => {
                 <th>{item.description}</th>
                 <th>{item.quantity}</th>
                 <th>{item.location}</th>
+                <button>Update Item</button>
               </tr>
             );
           })}
